@@ -26,6 +26,7 @@ public class ReportGenerator {
 	public static String reportPath;
 
 	public static void initReport(){
+		System.out.println("####################Inside Report Genreation#####################");
 		String fileName = new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
 		reportPath = "./All_Reports/" + "Report_" + fileName;
 		report = new ExtentReports (reportPath +"/ExtentReport.html", true);

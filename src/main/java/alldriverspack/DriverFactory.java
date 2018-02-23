@@ -24,6 +24,7 @@ public class DriverFactory {
 	}
 	
 	public static void driverInit() {
+		System.out.println("Driver is  "+ConfigProp.getPropertyValue("Driver").toUpperCase() );
 		switch (ConfigProp.getPropertyValue("Driver").toUpperCase()) {
 		case "FIREFOX":
 			currentDriver.set(new DeskDriver().getNewDriver());

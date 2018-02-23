@@ -37,7 +37,7 @@ public class AppiumAppDriver  {
 		capabilities.setCapability(MobileCapabilityType.APP, appPath);
 		System.out.println(appPath);
 		try {
-			remoteDriver = new AndroidDriver<WebElement>(new URL(host), capabilities);
+			//remoteDriver = new AndroidDriver<WebElement>(new URL(host), capabilities);
 			ReportGenerator.log(LogStatus.INFO, "App driver is initiated successfully");
 		} catch (Exception e) 
 		{

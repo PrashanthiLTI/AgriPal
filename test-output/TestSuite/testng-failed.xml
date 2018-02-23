@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestSuite]">
+  <test name="TmpTest(failed)">
+    <classes>
+      <class name="basttestpack.BaseClass">
+        <methods>
+          <include name="poststeps"/>
+          <include name="presteps"/>
+          <include name="homepageValidation"/>
+        </methods>
+      </class> <!-- basttestpack.BaseClass -->
+    </classes>
+  </test> <!-- TmpTest(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->

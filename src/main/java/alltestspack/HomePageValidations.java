@@ -22,6 +22,7 @@ public class HomePageValidations {
 
 	public void homepageValidation()
 	{
+		System.out.println("#############HOME PAGE VALIDATIONS#################");
 		ReportGenerator.log(LogStatus.INFO, "Home Page Validaiton Started");
 		String url = ConfigProp.getPropertyValue("BaseUrl");
 		WrapperMethods.enter_URL(url);

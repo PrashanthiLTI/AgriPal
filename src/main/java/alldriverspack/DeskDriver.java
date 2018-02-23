@@ -28,9 +28,11 @@ public class DeskDriver implements DriverInterface {
 			return remoteDriver;
 		} else {
 			if (domDriver == null) {
+				System.out.println("%%%%% Browser is  "+ConfigProp.getPropertyValue("Browser").toUpperCase());
 				switch (ConfigProp.getPropertyValue("Browser").toUpperCase()) {
 				case "FIREFOX":
 					domDriver = new FirefoxDriver();
+					domDriver.manage().window().maximize();
 					break;
 				case "CHROME":
 					System.setProperty("webdriver.chrome.driver", "C:\\Users\\10647503\\Documents\\Drivers\\chromedriver.exe");
@@ -64,15 +66,12 @@ public class DeskDriver implements DriverInterface {
 				ReportGenerator.log(LogStatus.INFO, "Firefox is initiated");
 				break;
 			case "CHROME":
-				// System.setProperty("webdriver.chrome.driver",
-				// "C:/chromedriver_win32/chromedriver.exe");
 				desiredCap = DesiredCapabilities.chrome();
 				desiredCap.setBrowserName("chrome");
 				ReportGenerator.log(LogStatus.INFO, "Chrome is initiated");
 				break;
 			case "IE":
-				System.out.println("IE - Inside Switch");
-				 //System.setProperty("webdriver.ie.driver", "D:\\Users\\saravanan.mariappan\\Desktop\\Server\\IEDriverServer.exe");   
+				System.out.println("IE - Inside Switch");				
 				desiredCap = DesiredCapabilities.internetExplorer();
 				desiredCap.setBrowserName("internet explorer");
 				desiredCap.setCapability(InternetExplorerDriver.BROWSER_ATTACH_TIMEOUT, 30000);
@@ -84,7 +83,6 @@ public class DeskDriver implements DriverInterface {
 				break;
 			case "SAFARI":
 					SafariOptions options = new SafariOptions();
-					options.setUseCleanSession(true);
 					desiredCap = DesiredCapabilities.safari();
 					desiredCap.setCapability("webdriver.safari.noinstall", "true");
 					ReportGenerator.log(LogStatus.INFO, "Safari browser is initiated");

@@ -33,7 +33,7 @@ public class BaseClass {
 	public void poststeps(ITestContext ctx) 
 	{
 		ReportGenerator.endReport();
-//		DriverFactory.driverCleanUp();
+		DriverFactory.driverCleanUp();
 		
 	}
 	

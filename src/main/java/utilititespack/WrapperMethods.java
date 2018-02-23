@@ -1831,10 +1831,6 @@ public class WrapperMethods {
 		}
 	}
 
-	public static String isdevice() {
-		return ConfigProvider.getConfig("Platform");
-	}
-
 	public static String environment() {
 		String Environment = System.getProperty("environment");
 
@@ -1851,29 +1847,7 @@ public class WrapperMethods {
 		return Env[1].trim();
 	}
 
-	public static void closeTermsOfService(By Byele) {
-
-		WebDriver driver = DriverFactory.getCurrentDriver();
-
-		WebElement element = driver.findElement(Byele);
-
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		if (!element.isDisplayed())
-			try {
-				wait.until(ExpectedConditions.elementToBeClickable(element));
-			} catch (Exception e) {
-				// error.addError("TEST");
-			}
-		try {
-			// li.click();
-			JavascriptExecutor executor = (JavascriptExecutor) driver;
-			executor.executeScript("arguments[0].click();", element);
-			ReportGenerator.log(LogStatus.INFO, "Terms of Service was present & closed");
-		} catch (Exception e) {
-			ReportGenerator.log(LogStatus.INFO, "Terms of Service is not present");
-		}
-
-	}
+	
 
 	public static void selectByVisibleText(By Byele, String visibleText) {
 		WebDriver driver = DriverFactory.getCurrentDriver();
@@ -1898,37 +1872,17 @@ public class WrapperMethods {
 		driver.switchTo().frame(Frame_Element);
 	}
 
-	/**
-	 * Switches focus of the webdriver to a particular frame in the page
-	 * 
-	 * @param go
-	 * @param Frame_id
-	 */
 	public static void switchToFrame(String Frame_id) {
 		WebDriver driver = DriverFactory.getCurrentDriver();
 
 		driver.switchTo().frame(Frame_id);
 	}
-
-	/**
-	 * Switches webdriver focus to primary (base) window
-	 * 
-	 * @param go
-	 *            webdriver instance
-	 */
 	public static void switchToPrimaryWindow() {
 		WebDriver driver = DriverFactory.getCurrentDriver();
 
 		driver.switchTo().window(driver.getWindowHandle());
 
 	}
-
-	/**
-	 * Switches webdriver focus to last opened wev browser window
-	 * 
-	 * @param go
-	 *            webdriver instance
-	 */
 	public static void switchToLastWindow() {
 		WebDriver driver = DriverFactory.getCurrentDriver();
 
@@ -1947,8 +1901,6 @@ public class WrapperMethods {
 		rd.close();
 		JsonParser parser = new JsonParser();
 		JsonObject objToReturn = (JsonObject) parser.parse(s.toString());
-		// System.out.println(objToReturn.toString());
-		// System.out.println(objToReturn.get("proxyId"));
 		return objToReturn;
 	}
 
@@ -1957,14 +1909,6 @@ public class WrapperMethods {
 		return driver.findElement(By.cssSelector(csspath));
 	}
 
-
-	public static void theoplayerelementpresent() {
-		WebDriver driver = DriverFactory.getCurrentDriver();
-
-		WebDriverWait wait = new WebDriverWait(driver, 40);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-				"//div[contains(@class,'vjs-subtitles-button vjs-menu-button vjs-control')][@style='display: block;']")));
-	}
 
 	public static void textNotEmpty(By Byele, String passfailmsg) {
 
@@ -2355,13 +2299,6 @@ public class WrapperMethods {
 		}
 	}
 
-	public static void cookieclear(){
-		WebDriver driver = DriverFactory.getCurrentDriver();
-		driver.navigate().to("https://stage.www-m.cnn.com/debug/set-speedtrap/index.html");
-		driver.findElement(By.xpath("//input[@type='text']")).clear();
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("1");
-		driver.findElement(By.xpath("//input[@type='submit']")).click();
-	}
 
 	public static void scroll_Into_Element(By locator) {
 		WebDriver driver = DriverFactory.getCurrentDriver();
